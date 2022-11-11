@@ -19,13 +19,21 @@ public class State {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column
     private String nome;
+
+    @Column
     private String uf;
+
+
+    @Column
     private Integer ibge;
+
+    @Column
     private Integer pais;
     @Type(type = "jsonb")
     @Basic(fetch = FetchType.LAZY)
-    @Column(columnDefinition = "jsonb")
+    @Column(name = "ddd", columnDefinition = "jsonb")
     private List<Integer> ddd;
 
     public Long getId() {
