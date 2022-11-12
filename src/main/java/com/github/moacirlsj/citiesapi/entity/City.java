@@ -3,8 +3,10 @@ package com.github.moacirlsj.citiesapi.entity;
 
 import lombok.*;
 import org.hibernate.Hibernate;
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
+import org.springframework.data.geo.Point;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -15,7 +17,9 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 @Table(name = "cidade")
-
+//@TypeDefs({
+//        @TypeDef(name = "point", typeClass = PointType.class)
+//})
 public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +32,8 @@ public class City {
     private Integer ibge;
 
     @Column(name = "lat_lon")
-    private String lat_lon;
+    @Type(type = "point")
+    private Point lat_lon;
     @Column
     private Double latitude;
     @Column
