@@ -35,8 +35,14 @@ public class State {
     @Column
     private Integer ibge;
 
-    @Column
-    private Integer pais;
+//    @Column
+//    private Integer pais;
+
+//    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    @ManyToOne
+    @JoinColumn(name = "pais", referencedColumnName = "id")
+    private Country pais;
+
     @Type(type = "jsonb")
     @Basic(fetch = FetchType.LAZY)
     @Column(name = "ddd", columnDefinition = "jsonb")
