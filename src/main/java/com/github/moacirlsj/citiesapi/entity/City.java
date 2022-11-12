@@ -32,7 +32,7 @@ public class City {
     private Integer ibge;
 
     @Column(name = "lat_lon")
-    @Type(type = "point")
+//    @Type(type = "point")
     private Point lat_lon;
     @Column
     private Double latitude;
